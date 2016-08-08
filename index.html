@@ -1,0 +1,96 @@
+<!DOCTYPE html >
+<html ng-app lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thrifa</title>
+
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="angular.min.js"></script>
+
+</head>
+<body>
+
+<nav>
+    <div class="menu">
+        <ul>
+            <li>
+                <a class="page-scroll" href="#about">About</a>
+            </li>
+            <li>
+                <a class="page-scroll" href="#map">Map</a>
+            </li>
+            <li>
+                <a class="page-scroll" href="#portfolio">Portfolio</a>
+            </li>
+            <li>
+                <a class="page-scroll" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="search">
+<input type="text" name="search" placeholder="Enter stop or address">
+</div>
+
+<div class="search">
+    <input type="text" name="search" placeholder="Enter route">
+</div>
+
+
+<div id="map">
+
+<!--<script>
+    function initMap() {
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+            center: {lat: 46.734105, lng: -117.181786},
+            zoom: 14
+        });
+    }
+</script>
+-->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz7LS2gheZ3tX8mgHlRjjSsSYn0Ldx17g&callback=initMap">
+    </script>
+
+    <script type="text/javascript">
+        var locations = [
+            ['Washington State Univeristy', 46.731930, -117.154400, 1],
+            ['Washington State University School of Mechanical and Materials Engineering', 46.730327, -117.157415, 2],
+            ['Washington State University Veterinary Teaching Hospital', 46.728157, -117.158274, 3],
+            ['Washington State University Arboretum', 46.727654, -117.135865, 4],
+            ['Palouse Ridge Golf Club', 46.739419, -117.141959, 5]
+        ];
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: new google.maps.LatLng(46.734105, -117.181786),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+    </script>
+
+</div>
+
+</body>
+</html>
